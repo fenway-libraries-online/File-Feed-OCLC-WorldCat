@@ -13,7 +13,7 @@ use constant DELETE  => 'delete';
 
 sub _file_instance {
     my ($self, %arg) = @_;
-    if ($arg{'from'} =~ m{^(?:.*/)?metacoll\.([^.]+)\.(new|updates|deletes)\.D(\d\d\d\d)(\d\d)(\d\d)\.T(\d\d)(\d\d)(\d\d)(?:\.(.+))?\.(\d)\.([a-z]+)$}) {
+    if ($arg{'path'} =~ m{^(?:.*/)?metacoll\.([^.]+)\.(new|updates|deletes)\.D(\d\d\d\d)(\d\d)(\d\d)\.T(\d\d)(\d\d)(\d\d)(?:\.(.+))?\.(\d)\.([a-z]+)$}) {
         # File name spec from http://www.oclc.org/content/dam/support/worldshare-metadata/retrieve_marc.pdf (retrieved 2014-06-25)
         $arg{'oclc-symbol'} ||= $1;
         $arg{'purpose'}     ||= $2 eq 'new' ? ADD : $2 eq 'updates' ? REPLACE : DELETE;
