@@ -23,7 +23,7 @@ sub _file_instance {
         $arg{'collection'}  ||= $9 if defined $9;
         $arg{'digit'}       ||= $10;
         $arg{'mime-type'}   ||= $11 eq 'mrc' ? 'application/marc' : $11 eq 'xml' ? 'text/xml' : 'application/octet-stream';
-        $arg{'time-zone'}   ||= 'American/New_York';
+        $arg{'time-zone'}   ||= 'America/New_York';
     }
     return $self->SUPER::_file_instance(%arg);
 }
